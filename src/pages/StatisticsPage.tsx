@@ -2,7 +2,7 @@ import { useState } from "react"
 import useSWR from 'swr'
 import { Gradient } from "../components/Gradient"
 import { TimeRangePicker, TimeRange } from "../components/TimeRangePicker"
-import { TopNav } from "../components/TopNav"
+import { TopNav } from "../components/X"
 import { useTitle } from "../hooks/useTitle"
 import { LineChart } from "../components/LineChart"
 import { PieChart } from "../components/PieChart"
