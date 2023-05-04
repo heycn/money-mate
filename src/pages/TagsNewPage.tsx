@@ -1,5 +1,5 @@
 import { Gradient } from '../components/Gradient'
-import { TopNav } from '../components/X'
+import { TopNav } from '../components/TopNav'
 import { TagForm } from './TagsNewPage/TagForm'
 
 export const TagsNewPage: React.FC = () => {

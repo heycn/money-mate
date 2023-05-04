@@ -2,7 +2,7 @@ import { useState } from "react"
 import { AddItemFloatButton } from "../components/AddItemFloatButton"
 import { TimeRangePicker, TimeRange } from "../components/TimeRangePicker"
 import { Time, time } from '../lib/time'
-import { TopNav } from "../components/X"
+import { TopNav } from "../components/TopNav"
 import { ItemsList } from "./ItemsPage/ItemsList"
 import { ItemsSummary } from "./ItemsPage/ItemsSummary"
 import { useTitle } from "../hooks/useTitle"

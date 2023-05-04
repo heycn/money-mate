@@ -1,6 +1,6 @@
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { Gradient } from "../components/Gradient"
-import { TopNav } from "../components/X"
+import { TopNav } from "../components/TopNav"
 import { useAjax } from '../lib/ajax'
 import { TagForm } from "./TagsNewPage/TagForm"
 import { comfirmable } from '../lib/comfirmable'
