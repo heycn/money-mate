@@ -18,7 +18,7 @@ import { ErrorEmptyData, ErrorUnauthorized } from '../errors'
 import { ErrorPage } from '../pages/ErrorPage'
 import { ajax } from '../lib/ajax'
 
-export const router = createHashRouter([
+export const router = createBrowserRouter([
   { path: '/', element: <Root /> },
   { path: '/home', element: <Home title='首页' /> },
   {
