@@ -32,7 +32,7 @@ export const WelcomeLayout: React.FC = () => {
   const transitionRef = useRef({})
   const transitionConfig = useMemo(() => {
     const translateX = direction === 'right' ? -100 : 100
-    const first = location.pathname === '/welcome/1' && direction === ''
+    const first = pathname === '/welcome/1' && direction === ''
     transitionRef.current = {
       from: { opacity: first ? 1 : 0, transform: `translateX(${first ? 0 : translateX}%)` },
       enter: { opacity: 1, transform: 'translateX(0%)' },
@@ -45,8 +45,8 @@ export const WelcomeLayout: React.FC = () => {
       }
     }
     return transitionRef.current
-  }, [direction, location.pathname])
-  const transitions = useTransition(location.pathname, { ...transitionConfig })
+  }, [direction, pathname])
+  const transitions = useTransition(pathname, { ...transitionConfig })
   const { setReadFeatures } = useLocalStore()
   const onSkip = () => { setReadFeatures(true) }
 
@@ -55,13 +55,13 @@ export const WelcomeLayout: React.FC = () => {
     if (direction === 'left') {
       if (animating.current) { return }
       animating.current = true
-      nav(nextLinkMap[location.pathname], { replace: true })
+      nav(nextLinkMap[pathname], { replace: true })
     }
     if (direction === 'right') {
       if (animating.current) { return }
-      if (location.pathname === '/welcome/1') return
+      if (pathname === '/welcome/1') return
       animating.current = true
-      nav(prevLinkMap[location.pathname], { replace: true })
+      nav(prevLinkMap[pathname], { replace: true })
     }
   }, [direction])
 
@@ -87,8 +87,8 @@ export const WelcomeLayout: React.FC = () => {
         )}
       </main>
       <footer fixed bottom-0 left-0 h="1/7" w-screen text-center text-24px>
-        <Link to={nextLinkMap[location.pathname]} replace rounded-32px text='#73b19f'>
-          {((location.pathname !== '/welcome/4') && '下一页') || '去记账'}
+        <Link to={nextLinkMap[pathname]} replace rounded-32px text='#73b19f'>
+          {((pathname !== '/welcome/4') && '下一页') || '去记账'}
         </Link>
       </footer>
     </div>
