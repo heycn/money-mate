@@ -67,3 +67,5 @@ export const ItemsNewPage: React.FC = () => {
     </div>
   )
 }
+
+export default ItemsNewPage

@@ -42,3 +42,5 @@ export const Home: React.FC<Props> = props => {
     </div>
   )
 }
+
+export default Home

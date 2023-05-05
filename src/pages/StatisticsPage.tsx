@@ -109,3 +109,5 @@ export const StatisticsPage: React.FC<Props> = ({ title }) => {
     </div>
   )
 }
+
+export default StatisticsPage

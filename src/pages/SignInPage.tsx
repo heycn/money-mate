@@ -91,3 +91,5 @@ export const SignInPage: React.FC<Props> = props => {
     </div>
   )
 }
+
+export default SignInPage

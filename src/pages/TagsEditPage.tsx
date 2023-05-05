@@ -31,3 +31,5 @@ export const TagsEditPage: React.FC = () => {
     </div>
   )
 }
+
+export default TagsEditPage

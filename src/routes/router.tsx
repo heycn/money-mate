@@ -1,4 +1,4 @@
-import { Outlet, createBrowserRouter, createHashRouter } from 'react-router-dom'
+import { Outlet, createHashRouter } from 'react-router-dom'
 import type { AxiosError } from 'axios'
 import { Root } from '../components/Root'
 import { WelcomeLayout } from '../layouts/WelcomeLayout'
@@ -6,21 +6,29 @@ import { Welcome1 } from '../pages/Welcome1'
 import { Welcome2 } from '../pages/Welcome2'
 import { Welcome3 } from '../pages/Welcome3'
 import { Welcome4 } from '../pages/Welcome4'
-import { Home } from '../pages/Home'
-import { ItemsPage } from '../pages/ItemsPage'
-import { SignInPage } from '../pages/SignInPage'
-import { ItemsNewPage } from '../pages/ItemsNewPage'
 import { TagsNewPage } from '../pages/TagsNewPage'
-import { TagsEditPage } from '../pages/TagsEditPage'
-import { StatisticsPage } from '../pages/StatisticsPage'
 import { ItemsPageError } from '../pages/ItemsPageError'
 import { ErrorUnauthorized } from '../errors'
 import { ErrorPage } from '../pages/ErrorPage'
 import { ajax } from '../lib/ajax'
+import { Suspense, lazy } from 'react'
+import { Loading } from '../components/Loading'
+
+const Home = lazy(() => import('../pages/Home'))
+const SignInPage = lazy(() => import('../pages/SignInPage'))
+const ItemsPage = lazy(() => import('../pages/ItemsPage'))
+const ItemsNewPage = lazy(() => import('../pages/ItemsNewPage'))
+const TagsEditPage = lazy(() => import('../pages/TagsEditPage'))
+const StatisticsPage = lazy(() => import('../pages/StatisticsPage'))
+
+type S = {
+  children: React.ReactNode
+}
+const S: React.FC<S> = ({ children }) => <Suspense fallback={<Loading />}>{children}</Suspense>
 
 export const router = createHashRouter([
   { path: '/', element: <Root /> },
-  { path: '/home', element: <Home title='首页' /> },
+  { path: '/home', element: <S><Home title='首页' /></S> },
   {
     path: '/welcome',
     element: <WelcomeLayout />,
@@ -31,7 +39,7 @@ export const router = createHashRouter([
       { path: '4', element: <Welcome4 /> }
     ]
   },
-  { path: '/sign_in', element: <SignInPage title='登录' /> },
+  { path: '/sign_in', element: <S><SignInPage title='登录' /></S> },
   {
     // 放在这里的路由全部都需要登录
     path: '/',

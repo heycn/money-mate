@@ -56,3 +56,5 @@ export const ItemsPage: React.FC<Props> = ({ title }) => {
     </div>
   )
 }
+
+export default ItemsPage
