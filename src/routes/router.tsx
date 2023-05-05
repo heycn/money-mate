@@ -6,7 +6,6 @@ import { Welcome1 } from '../pages/Welcome1'
 import { Welcome2 } from '../pages/Welcome2'
 import { Welcome3 } from '../pages/Welcome3'
 import { Welcome4 } from '../pages/Welcome4'
-import { TagsNewPage } from '../pages/TagsNewPage'
 import { ItemsPageError } from '../pages/ItemsPageError'
 import { ErrorUnauthorized } from '../errors'
 import { ErrorPage } from '../pages/ErrorPage'
@@ -18,6 +17,7 @@ const Home = lazy(() => import('../pages/Home'))
 const SignInPage = lazy(() => import('../pages/SignInPage'))
 const ItemsPage = lazy(() => import('../pages/ItemsPage'))
 const ItemsNewPage = lazy(() => import('../pages/ItemsNewPage'))
+const TagsNewPage = lazy(() => import('../pages/TagsNewPage'))
 const TagsEditPage = lazy(() => import('../pages/TagsEditPage'))
 const StatisticsPage = lazy(() => import('../pages/StatisticsPage'))
 
@@ -54,7 +54,7 @@ export const router = createHashRouter([
     children: [
       {
         path: '/items',
-        element: <ItemsPage />,
+        element: <S><ItemsPage /></S>,
         errorElement: <ItemsPageError />,
         loader: async () => {
           const onError = (error: AxiosError) => {
@@ -64,11 +64,11 @@ export const router = createHashRouter([
           await ajax.get<Resources<Item>>('/api/v1/items?page=1').catch(onError)
         }
       },
-      { path: '/items/new', element: <ItemsNewPage /> },
+      { path: '/items/new', element: <S><ItemsNewPage /></S> },
       { path: '/tags', element: <div>标签</div> },
-      { path: '/tags/new', element: <TagsNewPage /> },
-      { path: '/tags/:id', element: <TagsEditPage /> },
-      { path: '/statistics', element: <StatisticsPage title='统计' /> },
+      { path: '/tags/new', element: <S><TagsNewPage /></S> },
+      { path: '/tags/:id', element: <S><TagsEditPage /></S> },
+      { path: '/statistics', element: <S><StatisticsPage title='统计' /></S> },
       { path: '/export', element: <div>敬请期待</div> },
       { path: '/noty', element: <div>敬请期待</div> },
     ]

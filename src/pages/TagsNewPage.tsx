@@ -13,3 +13,5 @@ export const TagsNewPage: React.FC = () => {
     </div>
   )
 }
+
+export default TagsNewPage
