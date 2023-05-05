@@ -28,7 +28,7 @@ export const User: React.FC<Props> = ({ className }) => {
       : <div block w="100%" className={className} mt-24px flex mb-32px>
         <img src={logo} w-48px ml-4px mr-16px />
         <div flex flex-col justify-between>
-          <h1 text-22px text='#181818' font-500 mb-4px title={name} overflow-hidden text-ellipsis>{name}</h1>
+          <h1 text-20px text='#181818' font-500 mb-4px title={name} overflow-hidden text-ellipsis max-w-180px>{name}</h1>
           <p text-15px text="#666" font-300>触手可得的记账伴侣</p>
         </div>
       </div>
