@@ -1,4 +1,4 @@
-import create from 'zustand'
+import { create } from 'zustand'
 import type { FormError } from '../lib/validate'
 
 export type Data = {
@@ -15,8 +15,7 @@ interface SignIn {
 
 export const useSignInStore = create<SignIn>(set => ({
   data: {
-    // TODO: 删掉这个邮箱地址
-    email: 'test@test.test',
+    email: 'test01@test.test1',
     code: '123456'
   },
   error: {

@@ -1,4 +1,4 @@
-import create from 'zustand'
+import { create } from 'zustand'
 import { time } from '../lib/time'
 import type { FormError } from '../lib/validate'
 
