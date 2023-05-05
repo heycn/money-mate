@@ -65,7 +65,9 @@ export const ItemsList: React.FC<Props> = (props) => {
                   </div>
                 </div>
               </div>
-              <div text='#181818' text-18px font-500>{item.kind === 'expenses' ? '-' : '+'} {item.amount / 100}</div>
+              <div style={{ color: item.kind === 'expenses' ? '#e77975' : '##70a3f3' }} text-18px font-500>
+                {item.kind === 'expenses' ? '-' : '+'}{item.amount / 100}
+              </div>
             </li>
           ))
         })}

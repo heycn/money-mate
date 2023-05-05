@@ -18,7 +18,7 @@ export const ItemsSummary: React.FC<Props> = (props) => {
       <li>
         <div color-blue font-500 text-22px>
           <span text-12px pr-2px font-mono>¥</span>
-          {balance / 100}
+          {income / 100}
         </div>
         <div>收入</div>
       </li>
@@ -34,7 +34,7 @@ export const ItemsSummary: React.FC<Props> = (props) => {
       <li>
         <div color='#666' font-500 text-22px>
           <span text-12px pr-2px font-mono>¥</span>
-          {income / 100}
+          {balance / 100}
         </div>
         <div>结余</div>
       </li>
